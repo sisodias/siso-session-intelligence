@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SISO Session Intelligence — Architecture</title>
+<style>body{font:16px/1.55 system-ui;max-width:1000px;margin:auto;padding:32px;color:#17202a}code,pre{background:#f4f6f7;padding:.15rem .35rem;border-radius:5px}pre{padding:18px;overflow:auto}.callout{border-left:4px solid #7d3c98;padding:12px 16px;background:#f5eef8}table{border-collapse:collapse;width:100%}th,td{border:1px solid #d5d8dc;padding:9px;text-align:left}footer{margin-top:40px;color:#566573}</style></head>
+<body><h1>SISO Session Intelligence</h1>
+<p>An evidence-backed learning pipeline over explicitly supplied agent sessions. It belongs in the <b>Agents → Shared intelligence</b> projection, while remaining independently forkable and releasable.</p>
+<h2>Outcome and flow</h2><pre>explicit JSONL input
+  → Claude/Codex adapter
+  → normalized event contract
+  → redact + bound text
+  → append-only event identity
+  → typed insight observations
+  → recurrence + importance
+  → local recall / JSON export</pre>
+<p class="callout"><b>Privacy boundary:</b> the repository and database never own raw transcripts. Input paths are explicit, absolute paths are not persisted, text is redacted before insertion, source/session locators are hashes, and the core performs no network request.</p>
+<h2>Why this is its own repository</h2><p>Its outcome, privacy risk, data lifecycle, adapters, storage, and release cadence are coherent and different from Agent Runtime and Agent Brain. Runtime owns session execution and resume. Brain owns shared operational state. Session Intelligence learns from transcript evidence.</p>
+<h2>First release decisions</h2><table><thead><tr><th>Decision</th><th>Reason</th></tr></thead><tbody>
+<tr><td>Two provider adapters, one event contract</td><td>Provider envelopes change without changing analysis or storage.</td></tr>
+<tr><td>Explicit files only</td><td>Consent and scope are visible; no surprise machine crawl.</td></tr>
+<tr><td>Deterministic classification and scoring</td><td>Offline, inspectable baseline before optional model extractors.</td></tr>
+<tr><td>SQLite single-writer source</td><td>Portable local state with one schema and machine-verifiable behavior.</td></tr>
+<tr><td>No mutation engine</td><td>Learning does not imply authority to alter code or agent policy.</td></tr>
+</tbody></table>
+<h2>Evolution contract</h2><p>Future extractors, embeddings, or clustering algorithms must emit the same typed insight and evidence contracts. Raw-data retention must remain a separate explicit policy. A model-assisted extractor should be an adapter, never a credential-bearing global.</p>
+<h2>Evidence</h2><p><code>script/test</code> ingests synthetic Claude and Codex sessions, proves idempotence, checks recall and export, and searches the resulting database for material that should have been redacted. <code>MIGRATION-MAP.json</code> records every source disposition.</p>
+<footer>The Great Library of SISO — Built by the SISO Open Source Foundation · Funded by SISO Agency.</footer></body></html>

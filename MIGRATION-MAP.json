@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "source": {
+    "repository": "SISO_Agent_Base",
+    "revision": "470226b133b753dafd6a675fb2714330f972e345",
+    "path": "extensions/session-mirror",
+    "state": "untracked warehouse material reviewed in place; not copied wholesale"
+  },
+  "decisions": [
+    {"source": "harvest.py and harvest_events.py", "destination": "src/siso_session_intelligence/adapters.py", "verdict": "reimplemented", "reason": "Preserve Claude and Codex normalization behind a provider-neutral contract."},
+    {"source": "event_log.py and migrations/008_session_mirror.sql", "destination": "src/siso_session_intelligence/store.py", "verdict": "reimplemented", "reason": "Keep append-only identity, recurrence, evidence, and indexes without a personal database path."},
+    {"source": "score_importance.py", "destination": "src/siso_session_intelligence/scoring.py", "verdict": "reimplemented", "reason": "Keep deterministic recency-frequency-source scoring."},
+    {"source": "cluster.py", "destination": "src/siso_session_intelligence/pipeline.py", "verdict": "simplified", "reason": "Canonical dedup ships first; TF-IDF clustering remains a later evidence-backed upgrade."},
+    {"source": "boot-recall.py and preflight_lessons.py", "destination": "recall command", "verdict": "reimplemented", "reason": "Expose ranked local recall without personal project-memory paths."},
+    {"source": "m3.py and provider calls", "destination": null, "verdict": "excluded", "reason": "Credential-bearing, provider-coupled configuration is not part of the public core."},
+    {"source": "launchd plist, run scripts, logs and office paths", "destination": null, "verdict": "excluded", "reason": "Machine operation and generated state belong outside reusable source."},
+    {"source": "raw transcripts and warehouse databases", "destination": null, "verdict": "data boundary", "reason": "Private data remains user-owned and outside Git."},
+    {"source": "runtime.py hibernate/restore", "destination": "siso-agent-runtime candidate", "verdict": "reclassified", "reason": "Session lifecycle is runtime behavior, not session learning."},
+    {"source": "apply.py, remediate.py and automated mutation", "destination": "future governed improvement system", "verdict": "deferred", "reason": "Learning and autonomous code mutation require separate authority and safety contracts."}
+  ]
+}

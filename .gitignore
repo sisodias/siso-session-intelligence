@@ -1,0 +1,11 @@
+*.db
+*.sqlite
+*.sqlite3
+*.jsonl
+__pycache__/
+*.py[cod]
+.DS_Store
+dist/
+exports/
+!fixtures/*.jsonl
+!ledger/*.jsonl

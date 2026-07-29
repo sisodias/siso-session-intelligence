@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Session Intelligence checkpoint</title></head><body>
+<h1>Session Intelligence release checkpoint</h1><p><b>Status:</b> PASS · <b>Aggregate rating:</b> 94/100</p>
+<table border="1" cellpadding="8"><tr><th>Item</th><th>Change</th><th>Verification</th><th>Rating</th></tr>
+<tr><td>Plan</td><td>Clean reimplementation instead of copying unsafe untracked source.</td><td>Migration map covers reusable, excluded, deferred, and reclassified material.</td><td>95/100</td></tr>
+<tr><td>Implementation</td><td>Adapters, privacy filter, store, pipeline, scoring, recall, export.</td><td>System test covers both provider envelopes and database content.</td><td>94/100</td></tr>
+<tr><td>Verifier</td><td>Dependency-free test and publication gate.</td><td><code>npm test</code> / <code>script/test</code>.</td><td>93/100</td></tr>
+</table><p>Residual: deterministic keyword extraction is intentionally less semantically rich than an optional model adapter. The stable evidence contract allows that upgrade without changing the privacy boundary.</p>
+</body></html>

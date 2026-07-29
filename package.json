@@ -1,0 +1,8 @@
+{
+  "name": "siso-session-intelligence",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "bash script/test"
+  }
+}
