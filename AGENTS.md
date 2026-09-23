@@ -1,5 +1,7 @@
 # SISO Session Intelligence
 
+**In one line:** Tool that turns explicitly supplied Claude or Codex session files into redacted, classified insights stored in a local recall database. District: `SISO_Agents` (`~/SISO_Workspace/SISO_Agents/siso-session-intelligence`).
+
 ## Purpose
 
 Turn explicitly supplied Claude or Codex JSONL sessions into privacy-reduced,
