@@ -8,7 +8,7 @@
 | Where it sits | `~/SISO_Workspace/SISO_Agents/siso-session-intelligence` · district SISO_Agents · GitHub sisodias/siso-session-intelligence |
 | Owner | the agent stack lead (herdr agent-stack, SISO_Agents/siso-harness-lab) |
 | Run it | `npm run test` · Python project (`pyproject.toml`) · commands in `bin/` |
-| Write here | .agents/ is this repo's one agent folder (ADR 0015); create what you need there |
+| Write here | `.agents/HANDOFF.md` (state); `.agents/memory/MEMORY.md` (durable facts, one file each plus an index line) |
 | Worktrees | _data/worktrees/siso-session-intelligence/&lt;lane&gt; (never beside or inside the repo) |
 | Find anything | `estate where <words>`; the city map is `estate map` |
 <!-- estate:door end -->
